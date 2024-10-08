@@ -245,7 +245,7 @@ class Login extends Component {
   // On user button submit, execute this
   handleSubmit = async e => {
     e.preventDefault();
-    Axios.post("https://lionnlioness-backend-bq95-i339wuyj2-lionnlioness-projects.vercel.app/api/users/login", {
+    Axios.post("https://lionnlioness-backend-ys26wvcmd-lionnlioness-projects.vercel.app/users/login", {
       login: this.state.login.toLowerCase(),
       pwd: this.state.pwd
     })
