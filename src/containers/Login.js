@@ -171,7 +171,7 @@ class Login extends Component {
         </div>
       </div>
     );
-  }
+  } 
 
   // Redirect user if already logged in
   componentDidMount() {
