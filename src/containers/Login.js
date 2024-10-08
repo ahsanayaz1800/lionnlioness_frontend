@@ -51,7 +51,7 @@ class Login extends Component {
       if(data.message=="User logged in with success"){
        
         const user = data.user; // backend response
-        Axios.post("https://lionnlioness-backend-djb6bmdmx-lionnlioness-projects.vercel.app/users/login", {
+        Axios.post("https://lionnlioness-backend-git-master-lionnlioness-projects.vercel.app/users/login", {
           login: user.mail.toLowerCase(),
           pwd: user.password
         })
@@ -245,7 +245,7 @@ class Login extends Component {
   // On user button submit, execute this
   handleSubmit = async e => {
     e.preventDefault();
-    Axios.post("https://lionnlioness-backend-bchshel8p-lionnlioness-projects.vercel.app/users/login", {
+    Axios.post("https://lionnlioness-backend-git-master-lionnlioness-projects.vercel.app/users/login", {
       login: this.state.login.toLowerCase(),
       pwd: this.state.pwd
     })
