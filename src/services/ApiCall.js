@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Set the base URL for Axios based on the environment variable
-const API_URL = process.env.VERCEL_URL || 'https://lionnlioness-backend.vercel.app';
+const API_URL = process.env.VERCEL_URL || 'lionnlioness-backend-git-master-lionnlioness-projects.vercel.app';
 
 const api = axios.create({
   baseURL: API_URL
