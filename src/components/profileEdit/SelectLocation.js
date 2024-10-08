@@ -96,7 +96,7 @@ class SelectLocation extends Component {
 
   fetchLocationDetails = (latitude, longitude) => {
     // Use IP-API to get location details
-    fetch(`http://ip-api.com/json`)
+    fetch(`https://ip-api.com/json`)
       .then(response => response.json())
       .then(data => {
         if (data.status === "success") {
