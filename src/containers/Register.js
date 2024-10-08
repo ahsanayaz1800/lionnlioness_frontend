@@ -435,7 +435,7 @@ getLocation = () => {
   // Submitting user data to backend
   handleSubmit = async e => {
     e.preventDefault();
-    await Axios.post("lionnlioness-backend-git-master-lionnlioness-projects.vercel.app/users/register", {
+    await Axios.post("/users/register", {
       lastname: this.capitalizeFirstLetter(this.state.lastname.toLowerCase()),
       firstname: this.capitalizeFirstLetter(this.state.firstname.toLowerCase()),
       username: this.state.username.toLowerCase(),
