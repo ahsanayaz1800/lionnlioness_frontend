@@ -12,7 +12,8 @@ import ErrorToast from "../services/ErrorToastService";
 import InfoToast from "../services/InfoToastService";
 import Logo from "../assets/heart-anim.gif";
 import ValidateInput from "../validation/ValidateInput";
-
+import 'dotenv/config'
+const baseURL = process.env.REACT_APP_BASE_URL;
 class Register extends Component {
   constructor(props) {
     super(props);
@@ -435,7 +436,7 @@ getLocation = () => {
   // Submitting user data to backend
   handleSubmit = async e => {
     e.preventDefault();
-    await Axios.post("/users/register", {
+    await Axios.post(`${baseURL}/users/register`, {
       lastname: this.capitalizeFirstLetter(this.state.lastname.toLowerCase()),
       firstname: this.capitalizeFirstLetter(this.state.firstname.toLowerCase()),
       username: this.state.username.toLowerCase(),
