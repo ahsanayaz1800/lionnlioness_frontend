@@ -23,6 +23,9 @@ import HotNotif from "@material-ui/icons/Whatshot";
 import HighlightOff from "@material-ui/icons/HighlightOff";
 import Divider from "@material-ui/core/Divider";
 
+import 'dotenv/config'
+const baseURL = process.env.REACT_APP_BASE_URL;
+
 const Auth = new AuthService();
 const CancelToken = Axios.CancelToken;
 // eslint-disable-next-line
@@ -90,7 +93,7 @@ class NavBar extends Component {
   }
 
   callMsgNotifApi = async () => {
-    await Axios.get("/chat/notification/messages/" + this.state.userID, {
+    await Axios.get(`${baseURL}/chat/notification/messages/` + this.state.userID, {
       cancelToken: new CancelToken(function executor(c) {
         cancel = c;
       })
@@ -108,7 +111,7 @@ class NavBar extends Component {
 
   callMainNotifApi = async () => {
     var counter = 0;
-    await Axios.get("/users/notification/main/" + this.state.userID, {
+    await Axios.get(`${baseURL}/users/notification/main/` + this.state.userID, {
       cancelToken: new CancelToken(function executor(c) {
         cancel = c;
       })
@@ -158,7 +161,7 @@ class NavBar extends Component {
     }));
 
     const toggleDrawer = (side, open) => event => {
-      Axios.post("/users/read-notification/" + userID).then(res => {
+      Axios.post(`${baseURL}/users/read-notification/` + userID).then(res => {
         this._isMounted &&
           this.setState({ nbNotifications: null, [side]: open });
       });
