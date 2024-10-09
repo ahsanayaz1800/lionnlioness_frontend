@@ -8,7 +8,8 @@ export const PICTURE_UPDATED = "PICTURE_UPDATED";
 export const UPDATE_PROFILE_PICTURE = "UPDATE_PROFILE_PICTURE";
 export const PROFILE_PICTURE_UPDATED = "PROFILE_PICTURE_UPDATED";
 export const ERROR = "ERROR";
-
+import 'dotenv/config'
+const baseURL = process.env.REACT_APP_BASE_URL;
 const apiUrl = "/users";
 
 export const deleteUserPicture = (user_id, username, pic_index) => {
@@ -22,7 +23,7 @@ export const deleteUserPicture = (user_id, username, pic_index) => {
           payload: { user_id, pic_index }
         });
         axios
-          .get(`${apiUrl}/profile/${username}`)
+          .get(`${baseURL}/users/profile/${username}`)
           .then(response => {
             InfoToast.custom.info("Deleted", 1400);
             dispatch({ type: "USER_RECEIVED", payload: response.data });
@@ -52,7 +53,7 @@ export const updateUserPicture = (user_id, username, data) => {
           payload: { user_id, username, data }
         });
         axios
-          .get(`${apiUrl}/profile/${username}`)
+          .get(`${baseURL}/users/profile/${username}`)
           .then(response => {
             InfoToast.custom.info("Updated", 1400);
             dispatch({ type: "USER_RECEIVED", payload: response.data });
@@ -87,7 +88,7 @@ export const updateUserProfilePicture = (
           payload: { user_id, username, pic_index }
         });
         axios
-          .get(`${apiUrl}/profile/${username}`)
+          .get(`${baseURL}/users/profile/${username}`)
           .then(response => {
             InfoToast.custom.info("Profile picture changed", 1400);
             dispatch({ type: "USER_RECEIVED", payload: response.data });
