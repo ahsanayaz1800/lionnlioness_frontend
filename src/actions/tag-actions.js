@@ -2,11 +2,12 @@ import axios from "axios";
 import ApiCall from "../services/ApiCall";
 import ErrorToast from "../services/ErrorToastService";
 import InfoToast from "../services/InfoToastService";
+import 'dotenv/config'
+
 export const USER_RECEIVED = "USER_RECEIVED";
 export const UPDATE_TAG = "UPDATE_TAG";
 export const TAG_UPDATED = "TAG_UPDATED";
 export const ERROR = "ERROR";
-import 'dotenv/config'
 const baseURL = process.env.REACT_APP_BASE_URL;
 const apiUrl = "/users";
 
