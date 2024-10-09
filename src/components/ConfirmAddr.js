@@ -4,7 +4,8 @@ import "../containers/App";
 import "materialize-css/dist/css/materialize.min.css";
 import Materialize from "materialize-css";
 import Axios from "axios";
-
+import 'dotenv/config'
+const baseURL = process.env.REACT_APP_BASE_URL;
 class ConfirmAddr extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +17,7 @@ class ConfirmAddr extends Component {
   componentDidMount() {
     let key = document.location.href;
     key = key.split("/");
-    Axios.get("/users/register/" + key[key.length - 1])
+    Axios.get(`${baseURL}/users/register/` + key[key.length - 1])
       .then(res => {
         Materialize.toast({
           html: res.data["message"],
