@@ -5,7 +5,8 @@ import io from "socket.io-client";
 import AuthService from "../services/AuthService";
 import Axios from "axios";
 import Avatar from "@material-ui/core/Avatar";
-
+import 'dotenv/config'
+const baseURL = process.env.REACT_APP_BASE_URL;
 const CancelToken = Axios.CancelToken;
 // eslint-disable-next-line
 let cancel;
@@ -44,7 +45,7 @@ class ChatConv extends Component {
   async componentDidMount() {
     this._isMounted = true;
     this._isMounted && this.setState({ winSize: window.innerHeight - 160 });
-    await Axios.get("/chat/matches/" + this.Auth.getToken(), {
+    await Axios.get(`${baseURL}/chat/matches/` + this.Auth.getToken(), {
       cancelToken: new CancelToken(function executor(c) {
         cancel = c;
       })
@@ -223,7 +224,7 @@ class ChatConv extends Component {
   };
 
   callNotifApi = async () => {
-    await Axios.get("/chat/notification/list/" + this.state.userID, {
+    await Axios.get(`${baseURL}/chat/notification/list/` + this.state.userID, {
       cancelToken: new CancelToken(function executor(c) {
         cancel = c;
       })
