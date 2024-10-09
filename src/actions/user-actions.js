@@ -1,7 +1,9 @@
 import axios from "axios";
 import ApiCall from "../services/ApiCall";
 import ErrorToast from "../services/ErrorToastService";
+import 'dotenv/config'
 import InfoToast from "../services/InfoToastService";
+
 export const GET_USER = "GET_USER";
 export const USER_RECEIVED = "USER_RECEIVED";
 export const UPDATE_USER = "UPDATE_USER";
@@ -9,7 +11,6 @@ export const USER_UPDATED = "USER_UPDATED";
 export const DELETE_USER = "DELETE_USER";
 export const USER_DELETED = "USER_DELETED";
 export const ERROR = "ERROR";
-import 'dotenv/config'
 const baseURL = process.env.REACT_APP_BASE_URL;
 const apiUrl = "/users";
 
