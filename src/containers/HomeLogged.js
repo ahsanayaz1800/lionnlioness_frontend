@@ -14,7 +14,8 @@ import SortUserList from "../components/settings/SortUserList";
 import { FilterUsersButton } from "../components/Buttons";
 import HeartLoading from "../assets/heart-loading.gif";
 import HeartBroken from "../assets/heart-broken.gif";
-
+import 'dotenv/config'
+const baseURL = process.env.REACT_APP_BASE_URL;
 const CancelToken = Axios.CancelToken;
 // eslint-disable-next-line
 let cancel;
@@ -241,7 +242,7 @@ class HomeLogged extends Component {
         })
       });
 
-    await Axios.get("/main/suggestions/" + this.state.userID, {
+    await Axios.get(`${baseURL}/main/suggestions/` + this.state.userID, {
       cancelToken: new CancelToken(function executor(c) {
         cancel = c;
       })
