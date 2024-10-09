@@ -13,7 +13,8 @@ import HeartBroken from "../assets/heart-broken.gif";
 import HeartLoading from "../assets/heart-loading.gif";
 import io from "socket.io-client";
 import { Button, Icon } from "react-materialize";
-
+import 'dotenv/config'
+const baseURL = process.env.REACT_APP_BASE_URL;
 class Search extends Component {
   constructor(props) {
     super(props);
@@ -127,7 +128,7 @@ class Search extends Component {
       }
     }
 
-    await Axios.post("/main/search", {
+    await Axios.post(`${baseURL}/main/search`, {
       uid: this.state.userID,
       ageMin: this.state.searchData.ageRange[0],
       ageMax: this.state.searchData.ageRange[1],
