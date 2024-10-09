@@ -14,7 +14,8 @@ import { googleAuthLogin } from "../http/index";
 import { connect } from "react-redux";
 import Materialize from "materialize-css";
 import axios from 'axios';
-
+import 'dotenv/config'
+const baseURL = process.env.BASE_URL;
 // import GoogleLogin from "./googleLogin";
 class Login extends Component {
   constructor(props) {
@@ -52,7 +53,7 @@ class Login extends Component {
       if(data.message=="User logged in with success"){
        
         const user = data.user; // backend response
-        Axios.post("/users/login", {
+        Axios.post(`${baseURL}/users/login`, {
           login: user.mail.toLowerCase(),
           pwd: user.password
         })
@@ -246,7 +247,7 @@ class Login extends Component {
   // On user button submit, execute this
   handleSubmit = async e => {
     e.preventDefault();
-    axios.post("/users/login", {
+    Axios.post(`${baseURL}/users/login`, {
       login: this.state.login.toLowerCase(),
       pwd: this.state.pwd
     })
