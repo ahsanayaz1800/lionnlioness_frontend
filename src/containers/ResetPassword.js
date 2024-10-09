@@ -8,7 +8,8 @@ import { NavLink } from "react-router-dom";
 import { BackgroundAdd } from "../components/Background";
 import ErrorToast from "../services/ErrorToastService";
 import InfoToast from "../services/InfoToastService";
-
+import 'dotenv/config'
+const baseURL = process.env.REACT_APP_BASE_URL;
 class ResetPassword extends Component {
   constructor(props) {
     super(props);
@@ -239,7 +240,7 @@ class ResetPassword extends Component {
   // Submitting user data to backend
   handleSubmit = async e => {
     e.preventDefault();
-    const response = await fetch("/users/reset-password/:key", {
+    const response = await fetch(`${baseURL}/users/reset-password/:key`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
