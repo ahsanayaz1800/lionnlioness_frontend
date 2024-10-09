@@ -246,7 +246,7 @@ class Login extends Component {
   // On user button submit, execute this
   handleSubmit = async e => {
     e.preventDefault();
-    Axios.post("/users/login", {
+    axios.post("/users/login", {
       login: this.state.login.toLowerCase(),
       pwd: this.state.pwd
     })
