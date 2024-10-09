@@ -13,6 +13,7 @@ import { GoogleLogin } from '@react-oauth/google';
 import { googleAuthLogin } from "../http/index";
 import { connect } from "react-redux";
 import Materialize from "materialize-css";
+import axios from 'axios';
 
 // import GoogleLogin from "./googleLogin";
 class Login extends Component {
