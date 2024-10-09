@@ -16,7 +16,7 @@ import Materialize from "materialize-css";
 import axios from 'axios';
 import 'dotenv/config'
 // import GoogleLogin from "./googleLogin";
-const baseURL = process.env.BASE_URL;
+const baseURL = process.env.REACT_APP_BASE_URL;
 class Login extends Component {
   constructor(props) {
     super(props);
