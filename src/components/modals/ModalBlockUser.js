@@ -2,7 +2,8 @@ import { Modal, Button } from "react-materialize";
 import React, { Component } from "react";
 import axios from "axios";
 import InfoToastService from "../../services/InfoToastService";
-
+import 'dotenv/config'
+const baseURL = process.env.REACT_APP_BASE_URL;
 class ModalBlockUser extends Component {
   constructor(props) {
     super(props);
@@ -13,7 +14,7 @@ class ModalBlockUser extends Component {
 
   handleBlock = () => {
     axios
-      .get("/users/block/" + this.props.user_id + "/" + this.props.target_id)
+      .get(`${baseURL}/users/block/` + this.props.user_id + "/" + this.props.target_id)
       .then(res => {
         InfoToastService.custom.info(res.data.message, 5000);
         this.setState({ isBlocked: true });
