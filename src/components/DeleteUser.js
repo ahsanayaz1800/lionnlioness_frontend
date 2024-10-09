@@ -3,6 +3,9 @@ import "materialize-css/dist/css/materialize.min.css";
 import AuthService from "../services/AuthService";
 import Axios from "axios";
 
+import 'dotenv/config'
+const baseURL = process.env.REACT_APP_BASE_URL;
+
 class DeletUser extends Component {
   constructor(props) {
     super(props);
@@ -31,7 +34,7 @@ class DeletUser extends Component {
         "Are you sure you want to definitively delete your account ?"
       )
     ) {
-      Axios.delete(`/users/delete-account`, {
+      Axios.delete(`${baseURL}/users/delete-account`, {
         headers: { Authorization: `Bearer ${this.state.userToken}` }
       }).then(res => {
         this.Auth.logout();
