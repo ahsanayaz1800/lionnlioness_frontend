@@ -9,14 +9,15 @@ export const USER_UPDATED = "USER_UPDATED";
 export const DELETE_USER = "DELETE_USER";
 export const USER_DELETED = "USER_DELETED";
 export const ERROR = "ERROR";
-
+import 'dotenv/config'
+const baseURL = process.env.REACT_APP_BASE_URL;
 const apiUrl = "/users";
 
 export const getUserData = username => {
   return dispatch => {
     dispatch({ type: "GET_USER" });
     axios
-      .get(`${apiUrl}/profile/${username}`)
+      .get(`${baseURL}/users/profile/${username}`)
       .then(response => {
         dispatch({ type: "USER_RECEIVED", payload: response.data });
       })
@@ -35,7 +36,7 @@ export const updateUserData = (id, username, data) => {
       .then(response => {
         dispatch({ type: "USER_UPDATED", payload: data });
         axios
-          .get(`${apiUrl}/profile/${username}`)
+          .get(`${baseURL}/users/profile/${username}`)
           .then(response => {
             InfoToast.custom.info("Updated", 1400);
             dispatch({ type: "USER_RECEIVED", payload: response.data });
@@ -64,7 +65,7 @@ export const updateUserField = (id, username, field, data) => {
       .then(response => {
         dispatch({ type: "USER_UPDATED", payload: data });
         axios
-          .get(`${apiUrl}/profile/${username}`)
+          .get(`${baseURL}/users/profile/${username}`)
           .then(response => {
             InfoToast.custom.info("Updated", 1400);
             dispatch({ type: "USER_RECEIVED", payload: response.data });
