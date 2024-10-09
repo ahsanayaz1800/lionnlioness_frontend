@@ -7,7 +7,9 @@ import AuthService from "../services/AuthService";
 import { NavLink } from "react-router-dom";
 import ErrorToast from "../services/ErrorToastService";
 import InfoToast from "../services/InfoToastService";
-
+import 'dotenv/config'
+// import GoogleLogin from "./googleLogin";
+const baseURL = process.env.REACT_APP_BASE_URL;
 class ForgotPassword extends Component {
   constructor(props) {
     super(props);
@@ -50,7 +52,7 @@ class ForgotPassword extends Component {
                   <input
                     type="submit"
                     name="submit"
-                    value="reset password"
+                    value="reset password" 
                     className="btn"
                     disabled={!this.state.loginValid}
                   />
@@ -112,7 +114,7 @@ class ForgotPassword extends Component {
   // On user button submit, execute this
   handleSubmit = async e => {
     e.preventDefault();
-    const response = await fetch("/users/forgot-password", {
+    const response = await fetch(`${baseURL}/users/forgot-password`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
