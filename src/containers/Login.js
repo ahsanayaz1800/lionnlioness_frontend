@@ -248,7 +248,7 @@ class Login extends Component {
   handleSubmit = async e => {
     e.preventDefault();
     console.log(baseURL)
-    Axios.post(`/users/login`, {
+    Axios.post(`${baseURL}/users/login`, {
       login: this.state.login.toLowerCase(),
       pwd: this.state.pwd
     })
