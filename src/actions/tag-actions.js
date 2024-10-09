@@ -6,7 +6,8 @@ export const USER_RECEIVED = "USER_RECEIVED";
 export const UPDATE_TAG = "UPDATE_TAG";
 export const TAG_UPDATED = "TAG_UPDATED";
 export const ERROR = "ERROR";
-
+import 'dotenv/config'
+const baseURL = process.env.REACT_APP_BASE_URL;
 const apiUrl = "/users";
 
 export const deleteUserTag = (user_id, username, tag_id) => {
@@ -20,7 +21,7 @@ export const deleteUserTag = (user_id, username, tag_id) => {
           payload: { user_id, username, tag_id }
         });
         axios
-          .get(`${apiUrl}/profile/${username}`)
+          .get(`${baseURL}/users/profile/${username}`)
           .then(response => {
             InfoToast.custom.info("Updated", 1400);
             dispatch({ type: "USER_RECEIVED", payload: response.data });
@@ -50,7 +51,7 @@ export const createUserTag = (user_id, username, tag_id) => {
           payload: { user_id, username, tag_id }
         });
         axios
-          .get(`${apiUrl}/profile/${username}`)
+          .get(`${baseURL}/users/profile/${username}`)
           .then(response => {
             InfoToast.custom.info("Updated", 1400);
             dispatch({ type: "USER_RECEIVED", payload: response.data });
