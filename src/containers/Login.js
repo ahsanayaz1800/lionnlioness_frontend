@@ -15,8 +15,8 @@ import { connect } from "react-redux";
 import Materialize from "materialize-css";
 import axios from 'axios';
 import 'dotenv/config'
-const baseURL = process.env.BASE_URL;
 // import GoogleLogin from "./googleLogin";
+const baseURL = process.env.BASE_URL;
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -247,7 +247,8 @@ class Login extends Component {
   // On user button submit, execute this
   handleSubmit = async e => {
     e.preventDefault();
-    Axios.post(`${baseURL}/users/login`, {
+    console.log(baseURL)
+    axios.post(`${baseURL}/users/login`, {
       login: this.state.login.toLowerCase(),
       pwd: this.state.pwd
     })
