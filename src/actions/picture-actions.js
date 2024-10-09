@@ -2,13 +2,15 @@ import axios from "axios";
 import ApiCall from "../services/ApiCall";
 import ErrorToast from "../services/ErrorToastService";
 import InfoToast from "../services/InfoToastService";
+import 'dotenv/config'
+
 export const USER_RECEIVED = "USER_RECEIVED";
 export const UPDATE_PICTURE = "UPDATE_PICTURE";
 export const PICTURE_UPDATED = "PICTURE_UPDATED";
 export const UPDATE_PROFILE_PICTURE = "UPDATE_PROFILE_PICTURE";
 export const PROFILE_PICTURE_UPDATED = "PROFILE_PICTURE_UPDATED";
 export const ERROR = "ERROR";
-import 'dotenv/config'
+
 const baseURL = process.env.REACT_APP_BASE_URL;
 const apiUrl = "/users";
 
