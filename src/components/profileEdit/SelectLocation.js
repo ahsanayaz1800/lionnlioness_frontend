@@ -121,7 +121,7 @@ class SelectLocation extends Component {
   getCityFromLatLong = (lat, long) => {
 
     // Call IP-API for reverse geocoding
-    fetch(`http://ip-api.com/json`)
+    fetch(`https://ip-api.com/json`)
       .then(response => response.json())
       .then(data => {
       console.log(data)
@@ -142,7 +142,7 @@ class SelectLocation extends Component {
 
   getLatLongFromCity = city => {
     // Call IP-API for geocoding
-    fetch(`http://ip-api.com/json/${city}`)
+    fetch(`https://ip-api.com/json/${city}`)
       .then(response => response.json())
       .then(data => {
         if (data.status === "success" && data.lat && data.lon) {
