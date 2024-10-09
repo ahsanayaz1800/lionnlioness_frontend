@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Set the base URL for all Axios requests
 const axiosInstance = axios.create({
-  baseURL: process.env.BASE_URL || 'https://lionnlioness-backend-git-master-lionnlioness-projects.vercel.app',
+  baseURL: process.env.REACT_APP_BASE_URL || 'https://lionnlioness-backend-git-master-lionnlioness-projects.vercel.app',
   withCredentials: true
 });
 
