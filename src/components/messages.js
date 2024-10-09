@@ -7,7 +7,8 @@ import withAuth from "./withAuth";
 import ChatConv from "./ChatConv";
 import ChatRoom from "./ChatRoom";
 import NavBar from "./NavBar";
-
+import 'dotenv/config'
+const baseURL = process.env.REACT_APP_BASE_URL;
 const CancelToken = Axios.CancelToken;
 // eslint-disable-next-line
 let cancel;
@@ -78,7 +79,7 @@ class Messages extends Component {
     this._isMounted = true;
 
     if (this.state.room === null) return;
-    await Axios.get("/chat/room/" + this.state.room, {
+    await Axios.get(`${baseURL}/chat/room/` + this.state.room, {
       cancelToken: new CancelToken(function executor(c) {
         cancel = c;
       })
@@ -100,7 +101,7 @@ class Messages extends Component {
   }
 
   updateChat = async () => {
-    await Axios.get("/chat/room/" + this.state.room, {
+    await Axios.get(`${baseURL}/chat/room/` + this.state.room, {
       cancelToken: new CancelToken(function executor(c) {
         cancel = c;
       })
