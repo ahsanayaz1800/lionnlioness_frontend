@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from "react"; 
 import "../styles/App.css";
 import NavBar from "../components/NavBar";
 import "materialize-css/dist/css/materialize.min.css";
